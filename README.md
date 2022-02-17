@@ -10,7 +10,7 @@ This build process has been tested on Debia Buster (Debian 10), but should work 
 You will need the following minimal packages:
 
 ```
-build-essential linux-source bc kmod flex cpio libncurses5-dev libelf-dev
+build-essential bc kmod flex cpio libncurses5-dev libelf-dev
 ```
 
 ## Process
