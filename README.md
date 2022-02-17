@@ -1,4 +1,4 @@
-# Build your own linux kernel
+# Build your own Volumio x86 linux kernel
 Copyright (c) 2022 Gé Koerkamp / ge.koerkamp@volum##.com
 
 ## Intro
