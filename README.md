@@ -2,7 +2,7 @@
 Copyright (c) 2022 Gé Koerkamp / ge.koerkamp@volum##.com
 
 ## Intro
-This script is used for building the x86 kernel used for Volumio 3.
+This script is used for building the x86 kernel used for Volumio 3.  
 
 ## Prerequisites
 
@@ -26,3 +26,13 @@ git clone https://github.com/gkkpch/volumio-x86-build-kernel --depth 1
 cd volumio-x86-build-kernel
 ./buildx86kernel.sh
 ```
+
+### Patching
+
+
+After cloning/ updating the kernel and platform repos and applying volumio patches, the build process comes to a break-point and displays:
+```
+[ .. ] Now ready for additional sources and patches [ Info ]
+```
+At this point further patches can be made in the kernel tree.  
+Kernel patches are accumulated in ```./patches/volumio-kernel.patch```.  

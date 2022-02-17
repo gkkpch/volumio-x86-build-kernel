@@ -42,9 +42,14 @@ clean_previous_builds() {
   [[ -d ../$KERNELDIR/debian ]] && rm -r ../$KERNELDIR/debian
 
   log "Removing old build versions from the platform folder"
-  [[ -f $PLATFORMDIR/*$KVERPREV*amd64* ]] && rm ../*$KVERPREV*amd64*
-  [[ -f $PLATFORMDIR/linux-$KVERPREV* ]] && rm ../linux-$KVERPREV*
-
+  set -- $PLATFORMDIR/amd64*${KVERPREV}*
+  if [ -f "$1" ]; then
+    rm $PLATFORMDIR/amd64*${KVERPREV}*
+  fi
+  set -- $PLATFORMDIR/linux-*${KVERPREV}*
+  if [ "$1" ]; then
+    rm $PLATFORMDIR/linux-*${KVERPREV}*
+  fi
 }
 
 get_latest_kernel() {
@@ -134,6 +139,7 @@ log "Backup .deb files"
 
 rsync --remove-source-files -rq ../*.deb "$PLATFORMDIR"
 find ../ -maxdepth 1 -type f -name 'linux-*' -delete
+
 
 log "Build kernel completed" "okay"
 
