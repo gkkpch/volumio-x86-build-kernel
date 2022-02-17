@@ -42,13 +42,13 @@ clean_previous_builds() {
   [[ -d ../$KERNELDIR/debian ]] && rm -r ../$KERNELDIR/debian
 
   log "Removing old build versions from the platform folder"
-  set -- $PLATFORMDIR/amd64*${KVERPREV}*
+  set -- $PLATFORMDIR/amd64*${KVERPREV}*_defconfig
   if [ -f "$1" ]; then
-    rm $PLATFORMDIR/amd64*${KVERPREV}*
+    rm $PLATFORMDIR/amd64*${KVERPREV}*_defconfig
   fi
-  set -- $PLATFORMDIR/linux-*${KVERPREV}*
+  set -- $PLATFORMDIR/linux-*${KVERPREV}*.deb
   if [ "$1" ]; then
-    rm $PLATFORMDIR/linux-*${KVERPREV}*
+    rm $PLATFORMDIR/linux-*${KVERPREV}*.deb
   fi
 }
 
