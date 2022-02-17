@@ -133,7 +133,7 @@ log "Backup .deb files"
 #cp ../linux-image-${KERNELVER}_*amd64*.deb $PLATFORMDIR
 
 rsync --remove-source-files -rq ../*.deb "$PLATFORMDIR"
-rm ../linux-*
+find ../ -maxdepth 1 -type f -name 'linux-*' -delete
 
 log "Build kernel completed" "okay"
 
