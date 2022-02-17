@@ -14,7 +14,7 @@ index 474843277fa1..b48959376c3b 100644
  
  endif # WLAN_VENDOR_REALTEK
 diff --git a/drivers/net/wireless/realtek/Makefile b/drivers/net/wireless/realtek/Makefile
-index 888b5d594e79..0fdaba7342a6 100644
+index 888b5d594e79..67f3b6778716 100644
 --- a/drivers/net/wireless/realtek/Makefile
 +++ b/drivers/net/wireless/realtek/Makefile
 @@ -7,5 +7,9 @@ obj-$(CONFIG_RTL8180)		+= rtl818x/
