@@ -36,3 +36,10 @@ After cloning/ updating the kernel and platform repos and applying volumio patch
 ```
 At this point further patches can be made in the kernel tree.  
 Kernel patches are accumulated in ```./patches/volumio-kernel.patch```.  
+When you're ready, or did not have any patches, press [Enter]
+
+**Note** Currently, additional files are not automatically saved, you need to copy these into the build repo's sources folder, representing the spot in the tree where you wish to add them (create the corresponing directory tree ).
+
+
+There is also an opportunity to change kernel configuration settings, using the menuconfig dialogue which will appear.
+Just exit when you have no chnages.
