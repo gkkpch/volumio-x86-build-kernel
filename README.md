@@ -38,8 +38,10 @@ At this point further patches can be made in the kernel tree.
 Kernel patches are accumulated in ```./patches/volumio-kernel.patch```.  
 When you're ready, or did not have any patches, press [Enter]
 
-**Note** Currently, additional files are not automatically saved, you need to copy these into the build repo's sources folder, representing the spot in the tree where you wish to add them (create the corresponing directory tree ).
+**Note** Currently, additional files are not automatically saved, you need to copy these into the build repo's sources folder.
+Represent the location in the tree where you wish to add them by creating the corresponding directory tree structure.
 
-
+### Kernel configuration
 There is also an opportunity to change kernel configuration settings, using the menuconfig dialogue which will appear.
-Just exit when you have no chnages.
+Just exit when you have no changes. 
+Configuration modifications will be saved in ```/platform-x86/packages-buster/amd64-volumio-min..._defconfig``` and reused with future kernel compiles.
