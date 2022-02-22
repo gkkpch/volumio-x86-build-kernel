@@ -80,7 +80,7 @@ add_additional_sources() {
   log "Adding additional sources"
 
   log "Adding additional kernel sources"
-  for d in ${SRC}/sources/*/ ; do
+  for d in ${SRC}/${KERNELBRANCH}/sources/*/ ; do
     cp -dR $d .
   done
 
@@ -102,7 +102,11 @@ add_additional_sources() {
 add_user_patches() {
 
   log "Applying accumulative kernel patches"
-  git apply $PATCHDIR/volumio-kernel.patch
+  for f in $PATCHDIR/${KERNELBRANCH}/*
+    do
+    log "Appying $f" "info"
+    git apply $f
+  done
 
 }
 
@@ -110,18 +114,19 @@ kernel_config() {
 
   log "Preparing volumio kernel config file"
   make clean
-  make amd64-volumio-min-5.10.y_defconfig
+  log "Using configuration ${KERNELDIR}/arch/x86/configs/${KERNELCONFIG}" "info"
+  make ${KERNELCONFIG}
   make menuconfig
   log "Saving .config to defconfig"
   make savedefconfig
   echo "Copying defconfig to volumio kernel config"
-  cp defconfig arch/x86/configs/amd64-volumio-min-5.10.y_defconfig
+  cp defconfig ${KERNELDIR}/arch/x86/configs/${KERNELCONFIG}
 }
 
 compile_kernel() {
   echo "Copying volumio kernel config to platform folder (history)"
   cp defconfig $PLATFORMDIR/amd64-volumio-min-${KERNELVER}-`date +%Y.%m.%d-%H.%M`_defconfig
-  cp defconfig $PLATFORMDIR/amd64-volumio-min-5.10.y_defconfig
+  cp defconfig $PLATFORMDIR/amd64-volumio-min-${KERNELVER}_defconfig
 
   echo "Compiling the kernel"
   start=$(date +%s.%N)

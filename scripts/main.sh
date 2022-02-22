@@ -29,7 +29,8 @@ add_user_patches
 log "Now ready for additional sources and patches" "Info"
 read -p "Press [Enter] key to resume ..."
 
-git diff > $PATCHDIR/volumio-kernel.patch
+git diff drivers > $PATCHDIR/0001-volumio-drivers.patch
+git diff sound > $PATCHDIR/0002-volumio-sound.patch
 
 kernel_config
 

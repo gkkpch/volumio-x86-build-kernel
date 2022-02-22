@@ -1,6 +1,6 @@
 KERNELREPO="git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
 KERNELDIR="${SRC}"/linux-stable
-KERNELBRANCH="5.10.y"
+KERNELBRANCH="5.15.y"
 KERNELCONFIG="amd64-volumio-min-${KERNELBRANCH}_defconfig"
 PATCHDIR="${SRC}"/patches
 PLATFORMREPO="https://github.com/gkkpch/platform-x86"
