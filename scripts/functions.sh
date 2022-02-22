@@ -80,7 +80,7 @@ add_additional_sources() {
   log "Adding additional sources"
 
   log "Adding additional kernel sources"
-  for d in ${SRC}/${KERNELBRANCH}/sources/*/ ; do
+  for d in ${SRC}/sources/${KERNELBRANCH}/*/ ; do
     cp -dR $d .
   done
 
@@ -102,7 +102,7 @@ add_additional_sources() {
 add_user_patches() {
 
   log "Applying accumulative kernel patches"
-  for f in $PATCHDIR/${KERNELBRANCH}/*
+  for f in ${PATCHDIR}/${KERNELBRANCH}/*
     do
     log "Appying $f" "info"
     git apply $f
@@ -126,7 +126,7 @@ kernel_config() {
 compile_kernel() {
   echo "Copying volumio kernel config to platform folder (history)"
   cp defconfig $PLATFORMDIR/amd64-volumio-min-${KERNELVER}-`date +%Y.%m.%d-%H.%M`_defconfig
-  cp defconfig $PLATFORMDIR/amd64-volumio-min-${KERNELVER}_defconfig
+  cp defconfig $PLATFORMDIR/amd64-volumio-min-${KERNELBRANCH}_defconfig
 
   echo "Compiling the kernel"
   start=$(date +%s.%N)
