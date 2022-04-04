@@ -3,7 +3,7 @@ KERNELDIR="${SRC}"/linux-stable
 KERNELBRANCH="5.10.y"
 KERNELCONFIG="amd64-volumio-min-${KERNELBRANCH}_defconfig"
 PATCHDIR="${SRC}"/patches
-PLATFORMREPO="https://github.com/gkkpch/platform-x86"
+PLATFORMREPO="https://github.com/volumio/platform-x86"
 PLATFORMDIR="$SRC"/platform-x86/packages-buster
 
 export INSTALL_MOD_STRIP=1
